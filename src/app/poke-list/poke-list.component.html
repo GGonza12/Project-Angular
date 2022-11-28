@@ -6,7 +6,7 @@
         <h5 class="card-title">{{pokemon.name}}</h5>
         <ul class="list-group list-group-flush ">
           <li class="list-group-item text-bg-danger">{{pokemon.type}}</li>
-          <li class="list-group-item text-bg-danger"><img [src]="pokemon.logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></li>
+          <li class="list-group-item text-bg-danger"  *ngFor="let logo of pokemon.logo"><img [src]="logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></li>
           <li class="list-group-item text-bg-danger">{{pokemon.ps}}</li>
         </ul>
         <div class="d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">

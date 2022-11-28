@@ -11,6 +11,7 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { FormsModule } from '@angular/forms';
 import { PokeTeamComponent } from './poke-team/poke-team.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PokeTeamComponent } from './poke-team/poke-team.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

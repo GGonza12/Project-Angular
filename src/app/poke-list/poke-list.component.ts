@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokeDataService } from '../poke-data.service';
 import { PokeTeamService } from '../poke-team.service';
 import { PokeTeamComponent } from '../poke-team/poke-team.component';
 import { Poke } from './Poke';
@@ -9,8 +10,8 @@ import { Poke } from './Poke';
   styleUrls: ['./poke-list.component.scss']
 })
 export class PokeListComponent implements OnInit {
-
-  pokemons: Poke[] = [{
+  pokemons: Poke[] = [];
+  /*pokemons: Poke[] = [{
     
     name: "Gengar",
     type:"Fantasma - Veneno",
@@ -43,6 +44,26 @@ export class PokeListComponent implements OnInit {
     quantity:0
   },
   {
+    name: "Mudkip",
+    type:"Agua",
+    logo:"https://upload.wikimedia.org/wikipedia/commons/3/36/Agua_Pokemon.svg",
+    description:"Este Pokémon está basado en un pequeño pollito. Torchic está cubierto por una suave capa de plumas con tonos anaranjados, sus alas son inútiles para volar debido a su pequeño tamaño. Antes que sus patas se desarrollen completamente, este Pokémon se mantiene cerca de su entrenador, siguiéndole a todos lados mientras aprende a caminar.",
+    image:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/258.png",
+    ps:30,
+    move:"Ascuas",
+    quantity:0
+  },
+  {
+    name: "Seedot",
+    type:"Planta",
+    logo:"https://pm1.narvii.com/6260/5137a7cc60df24cffcfd528a8c8d27ceaab3517e_hq.jpg",
+    description:"Este Pokémon está basado en un pequeño pollito. Torchic está cubierto por una suave capa de plumas con tonos anaranjados, sus alas son inútiles para volar debido a su pequeño tamaño. Antes que sus patas se desarrollen completamente, este Pokémon se mantiene cerca de su entrenador, siguiéndole a todos lados mientras aprende a caminar.",
+    image:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/273.png",
+    ps:30,
+    move:"Ascuas",
+    quantity:0
+  },
+  {
     name: "Hitmonchan",
     type:"Lucha",
     logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Pok%C3%A9mon_Fighting_Type_Icon.svg/2048px-Pok%C3%A9mon_Fighting_Type_Icon.svg.png",
@@ -52,12 +73,17 @@ export class PokeListComponent implements OnInit {
     move:"Puño incremento",
     quantity:0
   }
-]
-  constructor(private team:PokeTeamService) { 
+];*/
+  constructor(
+    private team:PokeTeamService,
+    private pokeDataService:PokeDataService
+    ) { 
 
   }
 
   ngOnInit(): void {
+    this.pokeDataService.getAll()
+    .subscribe(pokemons => this.pokemons = pokemons)
   }
   addToTeam(pokemon:Poke):void {
     this.team.addToTeam(pokemon);
