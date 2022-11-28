@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PokeTeamService } from '../poke-team.service';
+import { PokeTeamComponent } from '../poke-team/poke-team.component';
 import { Poke } from './Poke';
 
 @Component({
@@ -9,6 +11,7 @@ import { Poke } from './Poke';
 export class PokeListComponent implements OnInit {
 
   pokemons: Poke[] = [{
+    
     name: "Gengar",
     type:"Fantasma - Veneno",
     logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pok%C3%A9mon_Ghost_Type_Icon.svg/2048px-Pok%C3%A9mon_Ghost_Type_Icon.svg.png",
@@ -16,7 +19,7 @@ export class PokeListComponent implements OnInit {
     image:"https://images.wikidexcdn.net/mwuploads/wikidex/f/f8/latest/20200428203046/Gengar.png",
     ps:60,
     move:"Garra sombra",
-    available:true
+    quantity:0
 
   },
   {
@@ -27,7 +30,7 @@ export class PokeListComponent implements OnInit {
     image:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/068.png",
     ps:100,
     move:"Puño incremento",
-    available:true
+    quantity:0
   },
   {
     name: "Torchic",
@@ -37,7 +40,7 @@ export class PokeListComponent implements OnInit {
     image:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/255.png",
     ps:30,
     move:"Ascuas",
-    available:true
+    quantity:0
   },
   {
     name: "Hitmonchan",
@@ -47,24 +50,21 @@ export class PokeListComponent implements OnInit {
     image:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/107.png",
     ps:65,
     move:"Puño incremento",
-    available:true
+    quantity:0
   }
 ]
-  constructor() { }
+  constructor(private team:PokeTeamService) { 
+
+  }
 
   ngOnInit(): void {
   }
+  addToTeam(pokemon:Poke):void {
+    this.team.addToTeam(pokemon);
+  }
 
-  changeDisponibility(pokemon:any){
-    pokemon.available=!pokemon.available;
-    this.alert(pokemon);
+  maxReached(m: string){
+    alert(m);
   }
-  alert(pokemon:any){
-    if(pokemon.available==!true){
-      window.alert("Agregado.");
-    }
-    else {
-      window.alert("Eliminado.");
-    }
-  }
+
 }

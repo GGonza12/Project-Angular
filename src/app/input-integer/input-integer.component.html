@@ -1,0 +1,13 @@
+<div class="input-group d-flex flex-column">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-primary btn-sm" (click)="downQuantity()">-</button>
+        </div>
+
+        <input type="number" name="" class="input-group-text"  [(ngModel)]="quantity" (keyup)="ChangeQuantity($event)">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary btn-sm" (click)="upQuantity()">+</button>
+        </div>
+        
+    </div>
+</div>

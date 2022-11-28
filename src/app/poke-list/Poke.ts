@@ -6,6 +6,6 @@ export interface Poke {
     ps: number;
     move: string;
     image: string;
-    available:boolean;
+    quantity:number;
 
 }
