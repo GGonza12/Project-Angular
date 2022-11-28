@@ -12,7 +12,7 @@
         <div class="d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">
           <button class="btn btn-primary me-md-2" type="button">Detalles</button>
           
-          <app-input-integer [(quantity)]="pokemon.quantity"  (maxReached)="maxReached($event)" [max]="6"></app-input-integer>
+          <app-input-integer [(quantity)]="pokemon.quantity"  (maxReached)="maxReached($event)" [max]="1"></app-input-integer>
           
           {{pokemon.quantity}}
           <button class="btn btn-primary" type="button" (click)="addToTeam(pokemon)">Agregar</button>

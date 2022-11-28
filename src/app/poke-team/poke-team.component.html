@@ -1,5 +1,15 @@
-<ul>
-    <li *ngFor="let p of teamList">
-        <p>{{p.name}}</p>
-    </li>
-</ul>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let pokemon of teamList" style="max-width: 220px;">
+      <div class="card text-bg-primary mb-3">
+        <img [src]="pokemon.image" class="card-img-top" [alt]="pokemon.name">
+        <div class="card-body">
+          <h5 class="card-title">{{pokemon.name}}</h5>
+          <ul class="list-group list-group-flush ">
+            <li class="list-group-item text-bg-primary"><img [src]="pokemon.logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></li>
+          </ul>
+          <div class="d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

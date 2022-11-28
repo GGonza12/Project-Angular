@@ -23,7 +23,7 @@ export class InputIntegerComponent implements OnInit {
 
     }
     else {
-      this.maxReached.emit("No puedes agregar mas de 6 al equipo");
+      this.maxReached.emit("No puedes agregar mas de "+ this.max +" al equipo");
     }
     }
   downQuantity(): void{

@@ -22,11 +22,13 @@ export class PokeTeamService {
     
     let item:Poke = this._teamList.find((v1)=>v1.name==pokemon.name) as Poke;
     let cantidad=this.getQuantity()-pokemon.quantity;
+
+
     if((!item)&&(pokemon.quantity>0)&&(cantidad>=0)){        
         this._teamList.push({... pokemon});
       }
       else if(item&&cantidad>=0){
-        item.quantity+=pokemon.quantity;
+        this._teamList.push({... pokemon});
       }
       else if(cantidad<0){
         alert("No puedes agregar mas de 6 al equipo");
