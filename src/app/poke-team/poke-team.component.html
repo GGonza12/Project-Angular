@@ -8,6 +8,7 @@
             <li class="list-group-item text-bg-primary"  *ngFor="let logo of pokemon.logo"><img [src]="logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></li>
           </ul>
           <div class="d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">
+            <button class="btn btn-primary" type="button" (click)="removeFromTeam(pokemon)">quitar</button>
           </div>
         </div>
       </div>

@@ -1,20 +1,20 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col" *ngFor="let pokemon of pokemons" style="max-width: 220px;">
-    <div class="card text-bg-danger mb-3">
+    <div  [ngClass]="pokemon.type.length>1? 'card text-bg-danger':'card text-bg-success '">
       <img [src]="pokemon.image" class="card-img-top" [alt]="pokemon.name">
       <div class="card-body">
         <h5 class="card-title">{{pokemon.name}}</h5>
         <ul class="list-group list-group-flush ">
-          <li class="list-group-item text-bg-danger">{{pokemon.type}}</li>
-          <li class="list-group-item text-bg-danger"  *ngFor="let logo of pokemon.logo"><img [src]="logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></li>
-          <li class="list-group-item text-bg-danger">{{pokemon.ps}}</li>
+          <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.type}}</li>
+          <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '"  >
+            <div *ngFor="let logo of pokemon.logo" class="row gx-2"><img [src]="logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></div></li>
+          <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.ps}}</li>
         </ul>
         <div class="d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">
-          <button class="btn btn-primary me-md-2" type="button">Detalles</button>
           
           <app-input-integer [(quantity)]="pokemon.quantity"  (maxReached)="maxReached($event)" [max]="1"></app-input-integer>
           
-          {{pokemon.quantity}}
+
           <button class="btn btn-primary" type="button" (click)="addToTeam(pokemon)">Agregar</button>
         </div>
       </div>

@@ -18,6 +18,11 @@ export class PokeTeamService {
     }
   return cant;
   }
+  removeFromTeam(pokemon:Poke): void{
+    let pos = this._teamList.indexOf(pokemon);
+    this._teamList.splice(pos,1);
+    this.teamList.next(this._teamList);
+  }
   addToTeam(pokemon:Poke): void{
     
     let item:Poke = this._teamList.find((v1)=>v1.name==pokemon.name) as Poke;
@@ -26,16 +31,18 @@ export class PokeTeamService {
 
     if((!item)&&(pokemon.quantity>0)&&(cantidad>=0)){        
         this._teamList.push({... pokemon});
+        this.teamList.next(this._teamList);
       }
-      else if(item&&cantidad>=0){
-        this._teamList.push({... pokemon});
+      else if(item){
+
+        alert("No puedes agregar pokemons repetidos");
       }
       else if(cantidad<0){
         alert("No puedes agregar mas de 6 al equipo");
       } 
     
       console.table(this._teamList);
-      this.teamList.next(this._teamList);
+      
     }
     
     

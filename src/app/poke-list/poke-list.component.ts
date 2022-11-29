@@ -23,6 +23,7 @@ export class PokeListComponent implements OnInit {
     quantity:0
 
   },
+  
   {
     name: "Machamp",
     type:"Lucha",

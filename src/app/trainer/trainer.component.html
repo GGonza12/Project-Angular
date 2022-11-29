@@ -1,1 +1,21 @@
-<p>trainer works!</p>
+<h2>Tus pokemons</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let pokemon of teamList" style="max-width: 220px;">
+      <div  [ngClass]="pokemon.type.length>1? 'card text-bg-danger':'card text-bg-success '">
+        <img [src]="pokemon.image" class="card-img-top" [alt]="pokemon.name">
+        <div class="card-body">
+          <h5 class="card-title">{{pokemon.name}}</h5>
+          <ul class="list-group list-group-flush ">
+            <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.type}}</li>
+            <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.description}}</li>
+            <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '"  >
+              <div *ngFor="let logo of pokemon.logo" class="row gx-2"><img [src]="logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></div></li>
+            <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.ps}}</li>
+          </ul>
+          <div class="d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">
+            <button class="btn btn-primary" type="button" (click)="removeFromTeam(pokemon)">quitar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

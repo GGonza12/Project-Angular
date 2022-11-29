@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { PokeTrainerPokemonsComponent } from './poke-trainer-pokemons/poke-trainer-pokemons.component';
-import { PokeTrainerTrainerComponent } from './poke-trainer-trainer/poke-trainer-trainer.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http'
     AppComponent,
     PokeListComponent,
     PokeTrainerPokemonsComponent,
-    PokeTrainerTrainerComponent,
     TrainerComponent,
     InputIntegerComponent,
     PokeTeamComponent

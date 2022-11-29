@@ -17,5 +17,7 @@ export class PokeTeamComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  removeFromTeam(pokemon:Poke):void{
+    this.team.removeFromTeam(pokemon);
+  }
 }

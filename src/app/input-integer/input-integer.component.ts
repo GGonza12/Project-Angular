@@ -35,6 +35,13 @@ export class InputIntegerComponent implements OnInit {
   }
   ChangeQuantity(event: any):void{
     console.log(event.target);
+    if(this.quantity>=0&&this.quantity<=this.max){
+      this.quantityChange.emit(this.quantity);
+    }
+    else if(this.quantity>1){
+      this.maxReached.emit("No puedes agregar mas de "+ this.max +" al equipo");
+    }
+   
  
   }
 

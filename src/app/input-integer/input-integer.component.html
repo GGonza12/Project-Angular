@@ -4,7 +4,7 @@
             <button class="btn btn-outline-primary btn-sm" (click)="downQuantity()">-</button>
         </div>
 
-        <input type="number" name="" class="input-group-text"  [(ngModel)]="quantity" (keyup)="ChangeQuantity($event)">
+        <input type="number" name="" class="input-group-text" min="0" max="1"  [(ngModel)]="quantity" (keyup)="ChangeQuantity($event)" (click)="ChangeQuantity($event)">
         <div class="input-group-append">
             <button class="btn btn-outline-primary btn-sm" (click)="upQuantity()">+</button>
         </div>
