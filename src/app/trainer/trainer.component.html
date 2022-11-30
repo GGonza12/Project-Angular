@@ -30,7 +30,12 @@
           <div class="card-body">
             <h5 class="card-title">{{pokemonDetail[0].name}}</h5>
             <p class="card-text">{{pokemonDetail[0].description}}</p>
+            <h5 class="card-title">Movimientos</h5>
+            <ul class="list-group list-group-flush" *ngFor="let move of pokemonDetail[0].move">
+              <li class="list-group-item text-bg-info">{{move}}</li>
+            </ul>
             <p class="card-text"><small class="text-muted">{{pokemonDetail[0].ps}}</small></p>
+ 
           </div>
         </div>
       </div>
