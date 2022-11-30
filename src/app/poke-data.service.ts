@@ -19,5 +19,9 @@ export class PokeDataService {
     tap((pokemons: Poke[])=>pokemons.forEach(pokemon=> pokemon.quantity =0))
    );
   }
+  public getPokeId(id: number): Observable<Poke[]>{
+    return this.http.get<Poke[]>(URL+"/"+id);
+
+  }
 
 }

@@ -7,5 +7,6 @@ export interface Poke {
     move: string;
     image: string;
     quantity:number;
+    id:number;
 
 }

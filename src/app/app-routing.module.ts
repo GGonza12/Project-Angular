@@ -14,6 +14,9 @@ const routes: Routes = [
   {
     path:'trainer',component: TrainerComponent
   },
+  {
+    path:'pokemon/:id', component: TrainerComponent
+  }
 ];
 
 @NgModule({
