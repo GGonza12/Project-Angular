@@ -29,8 +29,10 @@ export class TrainerComponent implements OnInit {
   }
 removeFromTeam(pokemon:Poke):void{
     this.team.removeFromTeam(pokemon);
+    this.pokemonDetail.pop();
   }
   showPokeFromTeam(idPokemon:number):void{
+    // Tratando de preguntar a la api por un elemento con una id que le mando pero no funciona correctamente
     //let idPokemon = this.route.snapshot.paramMap.get('id') as unknown as number;
     //if(idPokemon!=null){
      //this.pokeDataService.getPokeId(idPokemon).subscribe(pokemon =>this.pokemon = pokemon);

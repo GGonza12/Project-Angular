@@ -19,7 +19,7 @@ export class PokeDataService {
     tap((pokemons: Poke[])=>pokemons.forEach(pokemon=> pokemon.quantity =0))
    );
   }
-  public getPokeId(id: number): Observable<Poke[]>{
+ /* public getPokeId(id: number): Observable<Poke[]>{
     const url= `${URL}/${id}`
     console.log(url);
     console.log(this.http.get<Poke[]>(URL+id));
@@ -27,6 +27,6 @@ export class PokeDataService {
       _ => console.log(`fetched pokemon id= ${id}`))
     );
 
-  }
+  } */
 
 }

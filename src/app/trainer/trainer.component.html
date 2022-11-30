@@ -7,13 +7,12 @@
           <h5 class="card-title">{{pokemon.name}}</h5>
           <ul class="list-group list-group-flush ">
             <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.type}}</li>
-            <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.description}}</li>
             <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '"  >
               <div *ngFor="let logo of pokemon.logo" class="row gx-2"><img [src]="logo" class="card-img-top width:24px" [alt]="pokemon.name" style="max-width: 54px"></div></li>
-            <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.ps}}</li> {{pokemon.id}}
+            <li [ngClass]="pokemon.type.length>1? 'list-group-item text-bg-danger':'card text-bg-success '" >{{pokemon.ps}}</li> 
           </ul>
-          <div class="d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">
-            <a class="btn btn-primary"   (click)="showPokeFromTeam(pokemon.id)">Detalles</a>
+          <div class="card-body d-grid  d-md-flex flex-column justify-content-md-end vstack gap-3">
+            <a class="btn btn-primary"  (click)="showPokeFromTeam(pokemon.id)">Detalles</a>
             <button class="btn btn-primary" type="button" (click)="removeFromTeam(pokemon)">Quitar</button>
           </div>
         </div>
@@ -21,16 +20,17 @@
     </div>
   </div>
   <div *ngIf="pokemonDetail.length>0">
-    <div class="card mb-3" style="max-width: 540px;">
+    <h3>Descripción</h3>
+    <div class="card text-bg-info mb-3" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="{{pokemonDetail[0].image}}" class="img-fluid rounded-start" alt="{{pokemonDetail[0].name}}">
+          <img [src]="pokemonDetail[0].image" class="img-fluid rounded-start" [alt]="pokemonDetail[0].name">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{pokemonDetail[0].name}}</h5> 
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h5 class="card-title">{{pokemonDetail[0].name}}</h5>
+            <p class="card-text">{{pokemonDetail[0].description}}</p>
+            <p class="card-text"><small class="text-muted">{{pokemonDetail[0].ps}}</small></p>
           </div>
         </div>
       </div>
