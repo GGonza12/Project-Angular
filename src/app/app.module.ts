@@ -10,7 +10,8 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { FormsModule } from '@angular/forms';
 import { PokeTeamComponent } from './poke-team/poke-team.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { DetailPokeComponent } from './detail-poke/detail-poke.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http'
     PokeTrainerPokemonsComponent,
     TrainerComponent,
     InputIntegerComponent,
-    PokeTeamComponent
+    PokeTeamComponent,
+    DetailPokeComponent
   ],
   imports: [
     BrowserModule,

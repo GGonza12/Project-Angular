@@ -12,7 +12,7 @@ import { PokeTeamService } from '../poke-team.service';
 export class TrainerComponent implements OnInit {
 
   teamList: Poke[] = [];
-  pokeId: Poke[] = [];
+  pokemonDetail: Poke[] = [];
   constructor(private team:PokeTeamService,
     private pokeDataService:PokeDataService,
     private route: ActivatedRoute,
@@ -22,7 +22,7 @@ export class TrainerComponent implements OnInit {
   ngOnInit(): void {
 
 
-      this.showPokeFromTeam();
+    //  this.showPokeFromTeam();
 
     
     
@@ -30,15 +30,21 @@ export class TrainerComponent implements OnInit {
 removeFromTeam(pokemon:Poke):void{
     this.team.removeFromTeam(pokemon);
   }
-  showPokeFromTeam():void{
-    let idPokemon = this.route.snapshot.paramMap.get('id') as unknown as number;
-    if(idPokemon!=null){
-      this.pokeDataService.getPokeId(idPokemon).subscribe(pokemon =>this.pokeId = pokemon);
-
+  showPokeFromTeam(idPokemon:number):void{
+    //let idPokemon = this.route.snapshot.paramMap.get('id') as unknown as number;
+    //if(idPokemon!=null){
+     //this.pokeDataService.getPokeId(idPokemon).subscribe(pokemon =>this.pokemon = pokemon);
+     //console.log(this.pokeDataService.getPokeId(idPokemon).subscribe(pokemon =>this.pokemon=pokemon));
+    //}
+    for(let i=0;i<this.teamList.length;i++){
+      if(this.teamList[i].id==idPokemon){
+        this.pokemonDetail.pop();
+        this.pokemonDetail.push(this.teamList[i]);
+      }
     }
       
     
-    console.log(this.pokeId);
+    console.log(this.pokemonDetail);
   }
 
 }
